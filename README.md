@@ -1,4 +1,5 @@
 # python-mini-projects
-<br>
+ 
 Author:-Aleena Parvez Shaikh
+<br>
 Collection of mini Python projects demonstrating programming concepts and problem-solving skills.
