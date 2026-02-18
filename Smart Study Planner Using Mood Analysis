@@ -1,0 +1,121 @@
+'''
+ Documentation
+ This program is based on my real life problem statement
+ Date:-16-2-2025
+ Day:-Tuesday
+ Developer:-Aleena Parvez Shaikh
+ Purpose:-I want through my   program any of the students will not waste their days due to their 
+ mood swings.
+Name Of The Project:Smart Study Planner Using Mood Analysis
+ This will help each student to complete their work according to the theory and research based 
+ program.
+     Suggests subjects to focus on according to:
+    * Positive mood → hardest or least interesting subjects
+    * Negative mood → easiest subjects
+    * Neutral mood → most interested or middle-interest subjects
+- Supports dynamic handling of subjects depending on number entered.
+'''
+name = input("Enter the name: ").title()
+print("Hello", name)
+print("Please follow the below instructions properly for accuracy")
+print("Enter the proper subjects names")
+moods = [
+    positive := ["Happy", "Excited", "Joyful", "Energetic", "Calm", "Relaxed", "Confident", "Hopeful", "Motivated", "Content"],
+    negative := ["Sad", "Angry", "Frustrated", "Anxious", "Stressed", "Lonely", "Guilty", "Confused", "Tired", "Bored"],
+    neutral  := ["Surprised", "Curious", "Nostalgic", "Thoughtful", "Indifferent", "Conflicted", "Restless"]
+]
+while (True):
+    categories = ["Positive", "Negative", "Neutral"]
+    for i in range(len(moods)):
+        print(f"{categories[i]} Moods:")
+        for mood_name in moods[i]:
+            print("-", mood_name)
+        print()
+
+    mood = input("Enter the mood: ").title()
+    print("Let's analyze your needs with", mood, "mood")
+
+    number = int(input("Enter the number of subjects or 1 to break: "))
+    if number == 1:
+        break
+    subjects = []
+
+    
+    for i in range(number):
+        subject = input(f"Enter the subject {i+1} name: ").title()
+
+        # Check for duplicates
+        if subject in subjects:
+            print("Duplicate subject! Please enter a different subject.")
+            subject = input(f"Enter the subject {i+1} name again: ").title()
+            continue
+
+        subjects.append(subject)   
+
+    print("\nSubjects entered are:")
+    for s in subjects:
+        print(s)
+
+    match number:
+        case 2:
+            easy = input("Enter the easiest subject: ").title()
+            hard = input("Enter the hardest subject: ").title()
+            if mood in positive:
+                print("Positive mood! Focus on hardest or least interesting subject:", hard)
+            elif mood in negative:
+                print("Negative mood! Focus on easiest subject:", easy)
+            else:
+                print("Neutral mood! Focus on either subject:", easy, "or", hard)
+
+        case 3:
+            easy = input("Enter the easiest subject: ").title()
+            hard = input("Enter the hardest subject: ").title()
+            middle = input("Enter the subject you are least interested in: ").title()
+            if mood in positive:
+                print("Positive mood! Focus on hardest or least interested subject:", hard, "or", middle)
+            elif mood in negative:
+                print("Negative mood! Focus on easiest subject:", easy)
+            else:
+                print("Neutral mood! Focus on middle interest subject:", middle)
+
+        case 4:
+            easy = input("Enter the easiest subject: ").title()
+            hard = input("Enter the hardest subject: ").title()
+            middle = input("Enter the subject you are least interested in: ").title()
+            most = input("Enter the subject you are most interested in: ").title()
+            if mood in positive:
+                print("Positive mood! Focus on hardest or least interested subject:", hard, "or", middle)
+            elif mood in negative:
+                print("Negative mood! Focus on easiest subject:", easy)
+            else:
+                print("Neutral mood! Focus on most interested subject:", most)
+
+        case 5:
+            easy = input("Enter the easiest subject: ").title()
+            hard = input("Enter the hardest subject: ").title()
+            middle = input("Enter the subject you are least interested in: ").title()
+            most = input("Enter the subject you are most interested in: ").title()
+            least = input("Enter the subject you don't want to study: ").title()
+            if mood in positive:
+                print("Positive mood! Focus on hardest or least interested subjects:", hard, "or", least)
+            elif mood in negative:
+                print("Negative mood! Focus on easiest subject:", easy)
+            else:
+                print("Neutral mood! Focus on most interested subject:", most)
+
+        case 6:
+            easy = input("Enter the easiest subject: ").title()
+            hard = input("Enter the hardest subject: ").title()
+            middle = input("Enter the subject you are least interested in: ").title()
+            most = input("Enter the subject you are most interested in: ").title()
+            least = input("Enter the subject you don't want to study: ").title()
+            weak = input("Enter the subject you are weak in: ").title()
+            if mood in positive:
+                print("Positive mood! Focus on hardest or least interested subjects:", hard, "or", middle, "or", least)
+            elif mood in negative:
+                print("Negative mood! Focus on easiest subject:", easy)
+            else:
+                print("Neutral mood! Focus on most interested subject:", most)
+
+        case _:
+            print("Please restart from start")
